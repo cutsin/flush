@@ -1,7 +1,7 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 
-// Root
+// Routes
 import '../views/home.dart';
 import '../views/settings.dart';
 

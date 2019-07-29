@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 // 
-import '../components/nav-bottom.dart';
+import '../components/nav/bottom.dart';
+import '../components/nav/top.dart';
 
 class SettingsComponent extends StatelessWidget {
   @override
@@ -29,9 +30,7 @@ class _SettingsState extends State<Settings> {
   Widget build(BuildContext context) {
     
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Settings'),
-      ),
+      appBar: NavTop('Settings'),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

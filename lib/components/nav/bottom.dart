@@ -1,22 +1,20 @@
 import 'package:flutter/material.dart';
 // 
-import '../app.dart';
-import '../router/routes.dart';
+import '../../app.dart';
+import '../../router/routes.dart';
+
+// Common state
+int selectedNavIndex = 0;
 
 class NavBottom extends StatefulWidget {
   NavBottom({Key key}) : super(key: key);
-
   @override
   _NavBottomState createState() => _NavBottomState();
 }
 
 class _NavBottomState extends State<NavBottom> {
-  int _selectedIndex = 0;
-
   @override
   Widget build(BuildContext context) {
-    var currentPath = () => ModalRoute.of(context)?.settings?.name; 
-    print(currentPath() + '????');
 
     // Generate Items
     List <BottomNavigationBarItem>_navs = [];
@@ -32,18 +30,15 @@ class _NavBottomState extends State<NavBottom> {
       navIndexMap[v['path']] = navBottomIndex;
     });
 
-    void _onItemTapped(int index) {
-      setState(() {
-        _selectedIndex = 1;
-      });
-      App.router.navigateTo(context, navIndexMap[index]);
-    }
-
     return BottomNavigationBar(
       items: _navs,
-      currentIndex: _selectedIndex,
+      currentIndex: selectedNavIndex,
       selectedItemColor: Colors.amber[800],
-      onTap: _onItemTapped,
+      onTap: (num index) {
+        setState(() => selectedNavIndex = index);
+        // Disable transtion
+        App.router.navigateTo(context, navIndexMap[index], transitionDuration: new Duration());
+      },
     );
   }
 }

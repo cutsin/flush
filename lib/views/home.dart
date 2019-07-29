@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 // 
-import '../components/nav-bottom.dart';
+import '../components/nav/bottom.dart';
+import '../components/nav/top.dart';
 
 class HomeComponent extends StatelessWidget {
   @override
@@ -34,9 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
+      appBar: NavTop('Home'),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

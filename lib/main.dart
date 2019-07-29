@@ -6,11 +6,12 @@ import './router/index.dart';
 
 main() => runApp(Main());
 
+final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+final SnackBar snackBar = const SnackBar(content: Text('Showing Snackbar'));
+
 class Main extends StatefulWidget {
   @override
-  State createState() {
-    return MainState();
-  }
+  State createState () => MainState();
 }
 
 class MainState extends State<Main> {
@@ -23,6 +24,7 @@ class MainState extends State<Main> {
   @override
   Widget build(BuildContext context) {
     final app = MaterialApp(
+      key: scaffoldKey,
       title: 'Flush',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
