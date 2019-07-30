@@ -4,7 +4,9 @@ import 'package:fluro/fluro.dart';
 import './app.dart';
 import './router/index.dart';
 
-main() => runApp(Main());
+void main() {
+  runApp(Main());
+}
 
 final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 final SnackBar snackBar = const SnackBar(content: Text('Showing Snackbar'));

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 // 
 import '../components/nav/bottom.dart';
 import '../components/nav/top.dart';
+import '../components/random-avt.dart';
 
 class HomeComponent extends StatelessWidget {
   @override
@@ -40,9 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
+            RandomAvt(),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.display1,
