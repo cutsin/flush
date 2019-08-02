@@ -6,9 +6,10 @@ class RandomAvt extends StatefulWidget {
   _RandomAvtState createState() => _RandomAvtState();
 }
 
-class _RandomAvtState extends State<RandomAvt> with WidgetsBindingObserver {
+class _RandomAvtState extends State<RandomAvt> {
   String uri = '';
   String name = '';
+  Map peoples = {};
   Future fetchAvt() async {
     var response = await http.get('https://randomuser.me/api');
     setState(() {
