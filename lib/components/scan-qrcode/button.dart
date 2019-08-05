@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import './page.dart' as Page;
+
 
 class ScanQRCodeButton extends StatefulWidget {
   @override
@@ -8,7 +10,7 @@ class ScanQRCodeButton extends StatefulWidget {
 
 class _ScanQRCodeButtonState extends State<ScanQRCodeButton> {
   // Future<String> _barcodeString;
-  
+
   @override
   initState() {
     super.initState();
@@ -19,8 +21,17 @@ class _ScanQRCodeButtonState extends State<ScanQRCodeButton> {
     return IconButton(
       icon: Icon(MaterialCommunityIcons.getIconData('qrcode-scan')),
       tooltip: 'Scan QRCode',
-      onPressed: () async {
+      onPressed: () {
         print('dd11');
+
+        // Fullscreen Dialog
+        Navigator.of(context).push(MaterialPageRoute<Null>(
+            builder: (BuildContext context) {
+              return Page.ScanQRCodePage();
+            },
+          fullscreenDialog: true
+        ));
+
         // showGeneralDialog(
         //   context: context,
         //   barrierLabel: '',

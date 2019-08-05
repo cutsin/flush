@@ -1,54 +1,87 @@
-// import 'dart:async';
-// import 'package:flutter/material.dart';
-// import 'package:fast_qr_reader_view/fast_qr_reader_view.dart';
+import 'dart:async';
+import 'package:flutter/material.dart';
+import 'package:fast_qr_reader_view/fast_qr_reader_view.dart';
 
-// List<CameraDescription> cameras;
+List<CameraDescription> cameras;
 
-// Future<Null> main() async {
-//   cameras = await availableCameras();
-//   print(cameras);
-// }
+class ScanQRCodePage extends StatefulWidget {
+  @override
+  _ScanQRCodePageState createState() => _ScanQRCodePageState();
+}
 
-// class ScanQRCodePage extends StatefulWidget {
-//   @override
-//   _ScanQRCodePageState createState() => _ScanQRCodePageState();
-// }
+class _ScanQRCodePageState extends State<ScanQRCodePage> {
+  QRReaderController controller;
+  Future _future;
 
-// class _ScanQRCodePageState extends State<ScanQRCodePage> {
-//   QRReaderController controller;
+   void onCodeRead(dynamic value) {
+    print('-----------${value.toString()}');
+    new Future.delayed(const Duration(seconds: 5), controller.startScanning);
+  }
 
-//   @override
-//   void initState() {
-//     super.initState();
-//     controller = QRReaderController(cameras[0], ResolutionPreset.medium, [CodeFormat.qr], (dynamic value){
-//         print(value); // the result!
-//     // ... do something
-//     // wait 3 seconds then start scanning again.
-//     Future.delayed(const Duration(seconds: 3), controller.startScanning);
-//     });
-//     controller.initialize().then((_) {
-//       if (!mounted) {
-//         return;
-//       }
-//       setState(() {});
-//       controller.startScanning();
-//     });
-//   }
+  Future getCamera() async {
+    try {
+      cameras = await availableCameras();
+    } on QRReaderException catch (e) {
+      print('Error: ${e.code}\nError Message: ${e.description}');
+    }
+    print(cameras);
+    print('step0');
+    controller = QRReaderController(cameras[0], ResolutionPreset.low,
+        [CodeFormat.qr, CodeFormat.pdf417], onCodeRead);
+    controller.addListener(() {
+      if (mounted) setState(() {});
+      if (controller.value.hasError) {
+        print('----Camera error ${controller.value.errorDescription}');
+      }
+    });
+    try {
+      print('step2');
+      await controller.initialize();
+    } on QRReaderException catch (e) {
+      print('-------${e.code}------${e.description}');
+      print('------Error: ${e.code}\n${e.description}');
+    }
+     if (mounted) {
+      setState(() {});
+      controller.startScanning();
+    }
+  }
 
-//   @override
-//   void dispose() {
-//     controller?.dispose();
-//     super.dispose();
-//   }
+  @override
+  void initState() {
+    super.initState();
+    _future = getCamera();
+  }
 
-//   @override
-//   Widget build(BuildContext context) {
-//     if (!controller.value.isInitialized) {
-//       return new Container();
-//     }
-//     return new AspectRatio(
-//         aspectRatio:
-//         controller.value.aspectRatio,
-//         child: new QRReaderPreview(controller));
-//   }
-// }
+  @override
+  void dispose() {
+    controller?.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+      future: _future,
+      builder: (context, snapshot) {
+        switch (snapshot.connectionState) {
+          case ConnectionState.none:
+          case ConnectionState.active:
+          case ConnectionState.waiting:
+            return Text('Awaiting result...');
+          case ConnectionState.done:
+            if (snapshot.hasError)
+              return Text('Error: ${snapshot.error}');
+              if (!controller.value.isInitialized) {
+                return Container();
+              }
+              return AspectRatio(
+                aspectRatio: controller.value.aspectRatio,
+                child: QRReaderPreview(controller)
+              );
+        }
+        return null;
+      }
+    );
+  }
+}

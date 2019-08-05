@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "641414189596",
+    "firebase_url": "https://flush-25ec2.firebaseio.com",
+    "project_id": "flush-25ec2",
+    "storage_bucket": "flush-25ec2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:641414189596:android:b7fd99a0b147c026",
+        "android_client_info": {
+          "package_name": "com.example.flush"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "641414189596-6sg4g90bb4ipmg28i7q4j5q1h1ob96ai.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDGX3FfapMF8M3eTDd5qP6snV6qq1W6gk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "641414189596-6sg4g90bb4ipmg28i7q4j5q1h1ob96ai.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
