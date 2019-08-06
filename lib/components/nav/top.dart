@@ -1,6 +1,6 @@
 import 'package:flush/main.dart';
 import 'package:flutter/material.dart';
-import '../scan-qrcode/button.dart';
+import '../qrcode/scan-button.dart';
 
 const TextStyle _titleStyle = TextStyle(fontWeight: FontWeight.bold);
 
@@ -14,7 +14,7 @@ class NavTop extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       title: Text(_title, style: _titleStyle),
       centerTitle: true,
-      leading: ScanQRCodeButton(),
+      leading: QRCodeScanButton(),
       actions: <Widget>[
         IconButton(
           icon: Icon(Icons.add),

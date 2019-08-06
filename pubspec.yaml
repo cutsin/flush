@@ -20,7 +20,10 @@ dependencies:
   # qr_utils: ^0.1.4 # works fine but cannot custom ui, no close button
   # barcode_scan: ^1.0.0 # Cannot open camera on emulator
   # qrcode_reader: ^0.4.4 # Not working
-  fast_qr_reader_view: ^0.1.5
+  # fast_qr_reader_view: # Dependent on Firebase (blocked)
+  #   git:
+  #     url: git://github.com/facundomedica/fast_qr_reader_view.git
+  qr_code_scanner: ^0.0.12
 
 dev_dependencies:
   flutter_test:
