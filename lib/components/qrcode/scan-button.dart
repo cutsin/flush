@@ -25,7 +25,7 @@ class _QRCodeScanButtonState extends State<QRCodeScanButton> {
         print('dd11');
 
         
-        scanQrText(context)
+        scanQrCode(context)
           .then((res) {
             print('${res}dadsf');
           });

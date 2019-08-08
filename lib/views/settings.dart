@@ -30,7 +30,7 @@ class _SettingsState extends State<Settings> {
   Widget build(BuildContext context) {
     
     return Scaffold(
-      appBar: NavTop('Settings'),
+      appBar: NavTop(title: 'Settings'),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

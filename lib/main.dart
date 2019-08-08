@@ -3,21 +3,20 @@ import 'package:fluro/fluro.dart';
 
 import './app.dart';
 import './router/index.dart';
+import './components/global.dart';
 
 void main() {
   runApp(Main());
 }
 
-final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
-final SnackBar snackBar = const SnackBar(content: Text('Showing Snackbar'));
-
 class Main extends StatefulWidget {
   @override
-  State createState () => MainState();
+  State createState () => _MainState();
 }
 
-class MainState extends State<Main> {
-  MainState() {
+class _MainState extends State<Main> {
+
+  _MainState() {
     final router = Router();
     Routes.configureRoutes(router);
     App.router = router;

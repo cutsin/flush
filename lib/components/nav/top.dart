@@ -1,30 +1,41 @@
-import 'package:flush/main.dart';
 import 'package:flutter/material.dart';
 import '../qrcode/scan-button.dart';
 
 const TextStyle _titleStyle = TextStyle(fontWeight: FontWeight.bold);
 
+
 class NavTop extends StatelessWidget implements PreferredSizeWidget {
-  final String _title;
+  final String title;
+  final Widget leading;
+  final List actions;
+
   // Constructor
-  NavTop(this._title);
+  NavTop({@required this.title, this.leading, this.actions});
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text(_title, style: _titleStyle),
+      title: Text(title, style: _titleStyle),
       centerTitle: true,
-      leading: QRCodeScanButton(),
-      actions: <Widget>[
-        IconButton(
-          icon: Icon(Icons.add),
-          tooltip: 'Add',
-          onPressed: () {
-            scaffoldKey.currentState.showSnackBar(snackBar);
-        }),
-      ]
+      leading: leading,
+      actions: actions,
     );
   }
   @override
   Size get preferredSize => new Size.fromHeight(kToolbarHeight);
+}
+
+Widget navTopScanner ({@required title}) {
+  return NavTop(
+    title: title,
+    leading: QRCodeScanButton(),
+    actions: <Widget>[
+      IconButton(
+        icon: Icon(Icons.add),
+        tooltip: 'Add',
+        onPressed: () {
+          print('Add manualy');
+      }),
+    ]
+  );
 }

@@ -21,10 +21,6 @@ class _QRCodeScannerState extends State<QRCodeScanner> {
   QRViewController controller;
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
 
-  _isFlashOn(String current) {
-    return flash_on == current;
-  }
-
   void _onQRViewCreated(QRViewController controller) {
     this.controller = controller;
     controller.scannedDataStream.listen((scanData) {
@@ -35,11 +31,6 @@ class _QRCodeScannerState extends State<QRCodeScanner> {
   }
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   void dispose() {
     controller?.dispose();
     super.dispose();
@@ -47,23 +38,9 @@ class _QRCodeScannerState extends State<QRCodeScanner> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Scan QRCode'),
-        backgroundColor: Colors.transparent,
-        centerTitle: true,
-        leading: Icon(Icons.arrow_back),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.add),
-            tooltip: 'Add',
-            onPressed: () {
-              print('ff');
-          }),
-        ]
-      ),
-      body: Container(
-        child: QRView(
+    return Stack(
+      children: [
+        QRView(
           key: qrKey,
           onQRViewCreated: _onQRViewCreated,
           overlay: QrScannerOverlayShape(
@@ -74,19 +51,39 @@ class _QRCodeScannerState extends State<QRCodeScanner> {
             cutOutSize: 180,
           ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.of(context).pop('ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTp4TW91cFQ4ZzJoQm40UjlhTUh3SnpoOGVoSVNOWVY2bThydVBEbFJ4MnRjSkZSYmVpazZxcTNZOWRHSXMxcFd5WG1HZnR4QitJWHdKUGtMazVFak5MZw@108.160.136.144:443/?plugin=obfs-local%3bobfs%3dtls%3bobfs-host%3d10086.cn%3bfast-open%3b#Tokyo');
-        },
-        tooltip: 'Flash',
-        child: Icon(Icons.code, color: Colors.black),
-      ),
+        Scaffold(
+          backgroundColor: Colors.transparent,
+          appBar: AppBar(
+            title: Text('Scan QRCode'),
+            backgroundColor: Colors.transparent,
+            centerTitle: true,
+            leading: IconButton(
+              icon: Icon(Icons.arrow_back),
+              tooltip: 'Back',
+              onPressed: () {
+                print('Add manualy');
+            }),
+            // actions: <Widget>[
+            //   IconButton(
+            //     icon: Icon(Icons.folder),
+            //     tooltip: 'Read',
+            //     onPressed: () {
+            //       print('Read from file');
+            //   }),
+            // ]
+          ),
+          body: Container(
+            padding: EdgeInsets.fromLTRB(50, 0, 0, 50),
+            alignment: Alignment(1.0, 0.5),
+            child: Text(qrText, style: TextStyle(color: Colors.white)),
+          ),
+        )
+      ]
     );
   }
 }
 
-Future scanQrText(BuildContext context) async {
+Future scanQrCode(BuildContext context) async {
   return await Navigator.of(context).push(MaterialPageRoute<String>(
     builder: (BuildContext context) {
       return QRCodeScanner();
