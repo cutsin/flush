@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:qr_code_scanner/qr_scanner_overlay_shape.dart';
-
-const flash_on = "FLASH ON";
-const flash_off = "FLASH OFF";
-const back_camera = "BACK CAMERA";
+import '../nav/top.dart';
 
 class QRCodeScanner extends StatefulWidget {
-  const QRCodeScanner({
-    Key key,
-  }) : super(key: key);
+  QRCodeScanner({Key key}) : super(key: key);
 
   @override
   _QRCodeScannerState createState() => _QRCodeScannerState();
@@ -17,7 +13,6 @@ class QRCodeScanner extends StatefulWidget {
 
 class _QRCodeScannerState extends State<QRCodeScanner> {
   var qrText = 'ss://';
-  var flashState = flash_on;
   QRViewController controller;
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
 
@@ -38,48 +33,35 @@ class _QRCodeScannerState extends State<QRCodeScanner> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        QRView(
-          key: qrKey,
-          onQRViewCreated: _onQRViewCreated,
-          overlay: QrScannerOverlayShape(
-            borderColor: Colors.greenAccent,
-            borderRadius: 0,
-            borderLength: 10,
-            borderWidth: 3,
-            cutOutSize: 180,
+    return LayoutBuilder(builder: (_context, constraints) {
+      return Stack(
+        children: [
+          QRView(
+            key: qrKey,
+            onQRViewCreated: _onQRViewCreated,
+            overlay: QrScannerOverlayShape(
+              borderColor: Colors.greenAccent,
+              borderRadius: 0,
+              borderLength: 10,
+              borderWidth: 3,
+              cutOutSize: 180,
+            ),
           ),
-        ),
-        Scaffold(
-          backgroundColor: Colors.transparent,
-          appBar: AppBar(
-            title: Text('Scan QRCode'),
+          Scaffold(
             backgroundColor: Colors.transparent,
-            centerTitle: true,
-            leading: IconButton(
-              icon: Icon(Icons.arrow_back),
-              tooltip: 'Back',
-              onPressed: () {
-                print('Add manualy');
-            }),
-            // actions: <Widget>[
-            //   IconButton(
-            //     icon: Icon(Icons.folder),
-            //     tooltip: 'Read',
-            //     onPressed: () {
-            //       print('Read from file');
-            //   }),
-            // ]
+            appBar: NavTop(title: 'Scan QRCode', type: 'back' , background: Colors.transparent),
           ),
-          body: Container(
-            padding: EdgeInsets.fromLTRB(50, 0, 0, 50),
-            alignment: Alignment(1.0, 0.5),
-            child: Text(qrText, style: TextStyle(color: Colors.white)),
+          Positioned(
+            top: constraints.biggest.height / 2 + 106,
+            left: 50.0,
+            right: 50.0,
+            child: Center(
+              child: Text(qrText, style: TextStyle(color: Colors.white, fontSize: 14))
+            ),
           ),
-        )
-      ]
-    );
+        ]
+      );
+    });
   }
 }
 

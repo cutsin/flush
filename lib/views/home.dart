@@ -36,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: navTopScanner(title: 'Home'),
+      appBar: NavTop(title: 'Home', type: 'scan2'),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
