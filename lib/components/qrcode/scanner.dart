@@ -70,6 +70,6 @@ Future scanQrCode(BuildContext context) async {
     builder: (BuildContext context) {
       return QRCodeScanner();
     },
-    fullscreenDialog: true
+    fullscreenDialog: true,
   ));
 } 

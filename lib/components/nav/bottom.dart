@@ -17,8 +17,8 @@ class _NavBottomState extends State<NavBottom> {
   Widget build(BuildContext context) {
 
     // Generate Items
-    List <BottomNavigationBarItem>_navs = [];
-    var navIndexMap = {};
+    List<BottomNavigationBarItem> _navs = [];
+    Map<num, dynamic> navIndexMap = {};
     routes.forEach((k, v) {
       num navBottomIndex = v['navBottomIndex'];
       if (navBottomIndex == null) return;
@@ -26,8 +26,7 @@ class _NavBottomState extends State<NavBottom> {
         icon: Icon(v['icon']),
         title: Text(v['title']),
       ));
-      navIndexMap[navBottomIndex] = v['path'];
-      navIndexMap[v['path']] = navBottomIndex;
+      navIndexMap[navBottomIndex] = v;
     });
 
     return BottomNavigationBar(
@@ -37,7 +36,8 @@ class _NavBottomState extends State<NavBottom> {
       onTap: (num index) {
         setState(() => selectedNavIndex = index);
         // Disable transtion
-        App.router.navigateTo(context, navIndexMap[index], transitionDuration: new Duration());
+        var nav = navIndexMap[index];
+        App.router.navigateTo(context, nav['path'], transitionDuration: nav['duration']);
       },
     );
   }

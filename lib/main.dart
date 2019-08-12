@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fluro/fluro.dart';
 
 import './app.dart';
 import './router/index.dart';
@@ -17,9 +16,7 @@ class Main extends StatefulWidget {
 class _MainState extends State<Main> {
 
   _MainState() {
-    final router = Router();
-    Routes.configureRoutes(router);
-    App.router = router;
+    App.router = Routes.init();
   }
 
   @override
