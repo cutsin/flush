@@ -1,7 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import '../qrcode/scan-button.dart';
 
-import 'package:fluro/fluro.dart';
 import '../../app.dart';
 
 const TextStyle _titleStyle = TextStyle(fontWeight: FontWeight.bold);
@@ -45,21 +46,24 @@ class NavTop extends StatelessWidget implements PreferredSizeWidget {
           tooltip: 'Back',
           onPressed: () {
             // Navigator.of(context).pop();
-            // App.router.pop(context);
-            App.router.navigateTo(context, '/settings', clearStack: true, transition: TransitionType.custom, transitionBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
-              return SlideTransition(
-                position: Tween<Offset>(
-                  begin: Offset(0.0, 0.0),
-                  end: Offset(1.0, 0.0),
-                ).animate(animation),
-                child: child,
-              );
-            });
+            // App.router.navigateTo(context, '/settings', clearStack: true, transition: TransitionType.custom, transitionBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
+            //   return SlideTransition(
+            //     position: Tween<Offset>(
+            //       begin: Offset(0.0, 0.0),
+            //       end: Offset(1.0, 0.0),
+            //     ).animate(animation),
+            //     child: child,
+            //   );
+            // });
+            App.router.pop(context);
           }
         );
         break;
       }
+      print(leading);
     }
+    json.decode('{"source": 1}').toString();
+    [1,2,3].cast();
     return AppBar(
       title: Text(title, style: _titleStyle),
       centerTitle: true,

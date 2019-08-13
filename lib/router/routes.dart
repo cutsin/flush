@@ -12,7 +12,7 @@ Map<String, dynamic> routes = {
   'home': {
     'title': 'Home',
     'path': '/',
-    'handler': Handler(handlerFunc: (_, params) => HomeComponent()),
+    'handler': Handler(handlerFunc: (_, params) => HomeView()),
     'navBottomIndex': 0,
     'duration': immediately,
     'icon': Icons.home,
@@ -20,7 +20,7 @@ Map<String, dynamic> routes = {
   'settings': {
     'title': 'Settings',
     'path': '/settings',
-    'handler': Handler(handlerFunc: (_, params) => SettingsComponent()),
+    'handler': Handler(handlerFunc: (_, params) => SettingsView()),
     'navBottomIndex': 1,
     'duration': immediately,
     'icon': Icons.settings,
@@ -28,7 +28,7 @@ Map<String, dynamic> routes = {
   'language': {
     'title': 'Language',
     'path': '/settings/language',
-    'handler': Handler(handlerFunc: (_, params) => LanguageComponent()),
+    'handler': Handler(handlerFunc: (_, params) => LanguageView()),
     'icon': Icons.language,
   },
 };

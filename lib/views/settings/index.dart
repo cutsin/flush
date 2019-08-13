@@ -4,34 +4,21 @@ import '../../app.dart';
 import '../../components/nav/bottom.dart';
 import '../../components/nav/top.dart';
 
-class SettingsComponent extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flush',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Settings(title: 'Settings'),
-    );
-  }
-}
-
-class Settings extends StatefulWidget {
-  Settings({Key key, this.title}) : super(key: key);
+class SettingsView extends StatefulWidget {
+  SettingsView({Key key, this.title}) : super(key: key);
   final String title;
   @override
-  _SettingsState createState() => _SettingsState();
+  _SettingsViewState createState() => _SettingsViewState();
 }
 
-class _SettingsState extends State<Settings> {
+class _SettingsViewState extends State<SettingsView> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   @override
   Widget build(BuildContext context) {
     
     return Scaffold(
-      appBar: NavTop(title: 'Settings'),
+      appBar: NavTop(title: 'Settings', type: null),
       body: ListView(
         children: ListTile.divideTiles(
           context: context,

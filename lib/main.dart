@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import './app.dart';
 import './router/index.dart';
-import './components/global.dart';
 
 void main() {
   runApp(Main());
@@ -14,7 +13,6 @@ class Main extends StatefulWidget {
 }
 
 class _MainState extends State<Main> {
-
   _MainState() {
     App.router = Routes.init();
   }
@@ -22,7 +20,6 @@ class _MainState extends State<Main> {
   @override
   Widget build(BuildContext context) {
     final app = MaterialApp(
-      key: scaffoldKey,
       title: 'Flush',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
