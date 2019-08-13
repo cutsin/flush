@@ -18,7 +18,7 @@ class _SettingsViewState extends State<SettingsView> {
   Widget build(BuildContext context) {
     
     return Scaffold(
-      appBar: NavTop(title: 'Settings', type: null),
+      appBar: NavTop(title: 'Settings', type: 'scan'),
       body: ListView(
         children: ListTile.divideTiles(
           context: context,

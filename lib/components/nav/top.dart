@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import '../qrcode/scan-button.dart';
 
@@ -45,7 +43,6 @@ class NavTop extends StatelessWidget implements PreferredSizeWidget {
           icon: Icon(Icons.arrow_back),
           tooltip: 'Back',
           onPressed: () {
-            // Navigator.of(context).pop();
             // App.router.navigateTo(context, '/settings', clearStack: true, transition: TransitionType.custom, transitionBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
             //   return SlideTransition(
             //     position: Tween<Offset>(
@@ -61,9 +58,8 @@ class NavTop extends StatelessWidget implements PreferredSizeWidget {
         break;
       }
       print(leading);
+      print('leading');
     }
-    json.decode('{"source": 1}').toString();
-    [1,2,3].cast();
     return AppBar(
       title: Text(title, style: _titleStyle),
       centerTitle: true,
