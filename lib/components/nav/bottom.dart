@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// 
+//
 import '../../app.dart';
 import '../../router/routes.dart';
 
@@ -13,6 +13,16 @@ class NavBottom extends StatefulWidget {
 }
 
 class _NavBottomState extends State<NavBottom> {
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  void updateIndex (index) {
+    setState(() => selectedNavIndex = index);
+  }
+
   @override
   Widget build(BuildContext context) {
 
@@ -34,7 +44,7 @@ class _NavBottomState extends State<NavBottom> {
       currentIndex: selectedNavIndex,
       selectedItemColor: Colors.amber[800],
       onTap: (num index) {
-        setState(() => selectedNavIndex = index);
+        updateIndex(index);
         // Disable transtion
         var nav = navIndexMap[index];
         App.router.navigateTo(context, nav['path'], transitionDuration: nav['duration']);

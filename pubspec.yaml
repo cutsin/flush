@@ -7,13 +7,16 @@ flutter:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_localizations:
-    sdk: flutter
   fluro: ^1.5.0
   flutter_bloc: ^0.20.0
   flutter_camera_ml_vision: ^1.0.0
   dio: ^2.1.13
   flutter_icons: ^0.1.4
+  flutter_slidable: ^0.5.3
+  # Locales
+  # intl: ^0.15.8
+  flutter_localizations:
+    sdk: flutter
   # QRCode Generate
   # qr_flutter: ^2.1.0+55
   # QRCode Scanner

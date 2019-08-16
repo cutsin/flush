@@ -5,8 +5,6 @@ import '../../app.dart';
 
 const TextStyle _titleStyle = TextStyle(fontWeight: FontWeight.bold);
 
-enum types { scan, back }
-
 class NavTop extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final String type;
@@ -16,10 +14,10 @@ class NavTop extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget leading;
-    List actions;
+    Widget leading = Container(width: 0, height: 0);
+    List actions = <Widget>[];
     Color background = Colors.black54;
-
+  
     switch (type) {
       case 'scan': {
         leading = QRCodeScanButton();
@@ -27,14 +25,12 @@ class NavTop extends StatelessWidget implements PreferredSizeWidget {
       }
       case 'scan2': {
         leading = QRCodeScanButton();
-        actions = <Widget>[
-          IconButton(
-            icon: Icon(Icons.add),
-            tooltip: 'Add',
-            onPressed: () {
-              print('Add manualy');
-          }),
-        ];
+        actions.add(IconButton(
+          icon: Icon(Icons.add),
+          tooltip: 'Add',
+          onPressed: () {
+            print('Add manualy');
+        }));
         break;
       }
       case 'back': {
@@ -57,9 +53,8 @@ class NavTop extends StatelessWidget implements PreferredSizeWidget {
         );
         break;
       }
-      print(leading);
-      print('leading');
     }
+
     return AppBar(
       title: Text(title, style: _titleStyle),
       centerTitle: true,

@@ -1,3 +1,4 @@
 {
-    "greetTo": "你好, {name}"
+  "Home": "首页",
+  "greetTo": "你好, {name}"
 }

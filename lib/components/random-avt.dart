@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../app.dart';
 import '../http.dart';
 
 class RandomAvt extends StatefulWidget {
@@ -43,7 +44,7 @@ class _RandomAvtState extends State<RandomAvt> {
             ),
             Container(
               child: Text(
-                name,
+                I18n.of(context).greetTo(name),
                 style: Theme.of(context).textTheme.display1,
               ),
               height: 48,
