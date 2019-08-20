@@ -1,4 +1,9 @@
 {
   "Home": "首页",
+  "Settings": "设置",
+  "Language": "语言",
+  "Add": "添加",
+  "Back": "后退",
+  "actManualy": "{action} manualy",
   "greetTo": "你好, {name}"
 }

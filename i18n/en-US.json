@@ -1,4 +1,9 @@
 {
   "Home": "Home",
+  "Settings": "Settings",
+  "Language": "Language",
+  "Add": "Add",
+  "Back": "Back",
+  "actManualy": "{action} manualy",
   "greetTo": "Hello {name}"
 }

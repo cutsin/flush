@@ -20,6 +20,7 @@ class _MainState extends State<Main> {
 
   @override
   Widget build(BuildContext context) {
+    print(router);
     // Locales
 
     final app = MaterialApp(

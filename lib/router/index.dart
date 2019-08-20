@@ -13,7 +13,6 @@ class Routes {
     routes.forEach((k, v) {
       TransitionType transType = v['transitionType'] ?? TransitionType.inFromRight;
       router.define(v['path'], handler: v['handler'], transitionType: transType);
-
     });
     // 404
     router.notFoundHandler = Handler(handlerFunc: (_, params) {
@@ -21,5 +20,11 @@ class Routes {
       return;
     });
     return router;
+  }
+  static translate () {
+    routes.forEach((k, v) {
+      TransitionType transType = v['transitionType'] ?? TransitionType.inFromRight;
+      router.define(v['path'], handler: v['handler'], transitionType: transType);
+    });
   }
 }

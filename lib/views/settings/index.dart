@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// 
+//
 import '../../app.dart';
 import '../../components/nav/bottom.dart';
 import '../../components/nav/top.dart';
@@ -16,16 +16,16 @@ class _SettingsViewState extends State<SettingsView> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   @override
   Widget build(BuildContext context) {
-    
+
     return Scaffold(
-      appBar: NavTop(title: 'Settings'),
+      appBar: NavTop(title: I18n.of(context).Settings),
       body: ListView(
         children: ListTile.divideTiles(
           context: context,
           tiles: [
             ListTile(
               leading: Icon(Icons.language),
-              title: Text('Language'),
+              title: Text(I18n.of(context).Language),
               trailing: Icon(Icons.keyboard_arrow_right),
               onTap: () {
                 App.router.navigateTo(context, '/settings/language');

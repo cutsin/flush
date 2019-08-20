@@ -34,7 +34,7 @@ class _NavBottomState extends State<NavBottom> {
       if (navBottomIndex == null) return;
       _navs.add(BottomNavigationBarItem(
         icon: Icon(v['icon']),
-        title: Text(v['title']),
+        title: Text(v['title'](context)),
       ));
       navIndexMap[navBottomIndex] = v;
     });

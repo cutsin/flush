@@ -35,6 +35,16 @@ class I18n implements WidgetsLocalizations {
 
   /// "Home"
   String get Home => "Home";
+  /// "Settings"
+  String get Settings => "Settings";
+  /// "Language"
+  String get Language => "Language";
+  /// "Add"
+  String get Add => "Add";
+  /// "Back"
+  String get Back => "Back";
+  /// "${action} manualy"
+  String actManualy(String action) => "${action} manualy";
   /// "Hello ${name}"
   String greetTo(String name) => "Hello ${name}";
 }
@@ -52,6 +62,21 @@ class _I18n_zh_CN extends I18n {
   /// "首页"
   @override
   String get Home => "首页";
+  /// "设置"
+  @override
+  String get Settings => "设置";
+  /// "语言"
+  @override
+  String get Language => "语言";
+  /// "添加"
+  @override
+  String get Add => "添加";
+  /// "后退"
+  @override
+  String get Back => "后退";
+  /// "${action} manualy"
+  @override
+  String actManualy(String action) => "${action} manualy";
   /// "你好, ${name}"
   @override
   String greetTo(String name) => "你好, ${name}";

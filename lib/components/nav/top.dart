@@ -17,7 +17,7 @@ class NavTop extends StatelessWidget implements PreferredSizeWidget {
     Widget leading = Container(width: 0, height: 0);
     List actions = <Widget>[];
     Color background = Colors.black54;
-  
+
     switch (type) {
       case 'scan': {
         leading = QRCodeScanButton();
@@ -27,9 +27,9 @@ class NavTop extends StatelessWidget implements PreferredSizeWidget {
         leading = QRCodeScanButton();
         actions.add(IconButton(
           icon: Icon(Icons.add),
-          tooltip: 'Add',
+          tooltip: I18n.of(context).Add,
           onPressed: () {
-            print('Add manualy');
+            print(I18n.of(context).actManualy(I18n.of(context).Add));
         }));
         break;
       }
@@ -37,7 +37,7 @@ class NavTop extends StatelessWidget implements PreferredSizeWidget {
         background = Colors.transparent;
         leading = IconButton(
           icon: Icon(Icons.arrow_back),
-          tooltip: 'Back',
+          tooltip: I18n.of(context).Back,
           onPressed: () {
             // App.router.navigateTo(context, '/settings', clearStack: true, transition: TransitionType.custom, transitionBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
             //   return SlideTransition(

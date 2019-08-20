@@ -1,5 +1,6 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import '../generated/i18n.dart';
 
 // Routes
 import '../views/home.dart';
@@ -10,7 +11,7 @@ final Duration immediately = Duration();
 
 Map<String, dynamic> routes = {
   'home': {
-    'title': 'Home',
+    'title': (_) => I18n.of(_).Home,
     'path': '/',
     'handler': Handler(handlerFunc: (_, params) => HomeView()),
     'navBottomIndex': 0,
@@ -18,7 +19,7 @@ Map<String, dynamic> routes = {
     'icon': Icons.home,
   },
   'settings': {
-    'title': 'Settings',
+    'title': (_) => I18n.of(_).Settings,
     'path': '/settings',
     'handler': Handler(handlerFunc: (_, params) => SettingsView()),
     'navBottomIndex': 1,
@@ -26,7 +27,7 @@ Map<String, dynamic> routes = {
     'icon': Icons.settings,
   },
   'language': {
-    'title': 'Language',
+    'title': (_) => I18n.of(_).Language,
     'path': '/settings/language',
     'handler': Handler(handlerFunc: (_, params) => LanguageView()),
     'icon': Icons.language,
