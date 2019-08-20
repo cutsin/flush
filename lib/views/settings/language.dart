@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import '../../app.dart';
 import '../../components/nav/top.dart';
 
-Map _locales = {
-  'en_US': ['English', 'en'],
-  'zh_CN': ['中文', 'zh'],
+final Map _locales = {
+  'en': 'English',
+  'zh': '中文',
 };
 
 class LanguageView extends StatefulWidget {
@@ -20,12 +20,29 @@ class _LanguageViewState extends State<LanguageView> {
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   @override
   Widget build(BuildContext context) {
-    print(i18n.supportedLocales);
+    Locale curLocale = Localizations.localeOf(context);
+    print(curLocale.languageCode.runtimeType);
+    var _cur = curLocale.languageCode;
     Iterable<Widget> tiles = i18n.supportedLocales.map<Widget>((k) {
-      print(k is String);
+      var _k = k.languageCode;
+      Widget _check = Container(width: 0, height: 0);
+      bool _enabled = true;
+      if (_cur == _k) {
+        _check = Icon(Icons.check);
+        _enabled = false;
+      }
       return ListTile(
-        title: Text('_locales[k]'),
-        trailing: Icon(Icons.check),
+        title: Text(_locales[_k]),
+        trailing: _check,
+        enabled: _enabled,
+        onTap: () {
+          print('okhhhh');
+          Localizations.override(
+            context: context,
+            locale: k,
+          );
+          print(Localizations.localeOf(context));
+        },
       );
     });
     // Iterable<Widget> tiles = <Widget>[];

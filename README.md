@@ -7,6 +7,7 @@
 
 * [ ] Cookie
 * [x] States
+* [ ] EventBus
 * [ ] RX
 
 * [x] HTTP Request

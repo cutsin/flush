@@ -16,9 +16,6 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
-    Locale myLocale = Localizations.localeOf(context);
-    print(myLocale);
-    print(i18n.supportedLocales);
     return Scaffold(
       appBar: NavTop(title: I18n.of(context).Home, type: 'scan2'),
       body: Center(
