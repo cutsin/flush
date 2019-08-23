@@ -6,7 +6,8 @@
 * [x] Router
 
 * [ ] Cookie
-* [x] States
+* [x] Inner widget States
+* [ ] Provider state management
 * [ ] EventBus
 * [ ] RX
 
@@ -17,5 +18,6 @@
 * [x] Qr code scanner
 * [x] Icons
 
+* [ ] Unit Tests
 * [ ] Android Release
 * [ ] Android Plugins

@@ -32,7 +32,12 @@ class _SettingsViewState extends State<SettingsView> {
               },
             ),
             ListTile(
-              title: Text('One-line dense ListTile'),
+              leading: Icon(Icons.info_outline),
+              title: Text(I18n.of(context).About),
+              trailing: Icon(Icons.keyboard_arrow_right),
+              onTap: () {
+                print('about');
+              },
             ),
           ]
         ).toList()

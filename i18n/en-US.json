@@ -1,9 +1,10 @@
 {
-  "Home": "Home",
-  "Settings": "Settings",
-  "Language": "Language",
+  "About": "About",
+  "actManualy": "{action} manualy",
   "Add": "Add",
   "Back": "Back",
-  "actManualy": "{action} manualy",
-  "greetTo": "Hello {name}"
+  "greetTo": "Hello {name}",
+  "Home": "Home",
+  "Language": "Language",
+  "Settings": "Settings"
 }

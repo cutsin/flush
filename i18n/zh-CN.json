@@ -1,9 +1,10 @@
 {
-  "Home": "首页",
-  "Settings": "设置",
-  "Language": "语言",
+  "About": "关于",
+  "actManualy": "{action} manualy",
   "Add": "添加",
   "Back": "后退",
-  "actManualy": "{action} manualy",
-  "greetTo": "你好, {name}"
+  "greetTo": "你好, {name}",
+  "Home": "首页",
+  "Language": "语言",
+  "Settings": "设置"
 }

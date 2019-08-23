@@ -33,20 +33,22 @@ class I18n implements WidgetsLocalizations {
   @override
   TextDirection get textDirection => TextDirection.ltr;
 
-  /// "Home"
-  String get Home => "Home";
-  /// "Settings"
-  String get Settings => "Settings";
-  /// "Language"
-  String get Language => "Language";
+  /// "About"
+  String get About => "About";
+  /// "${action} manualy"
+  String actManualy(String action) => "${action} manualy";
   /// "Add"
   String get Add => "Add";
   /// "Back"
   String get Back => "Back";
-  /// "${action} manualy"
-  String actManualy(String action) => "${action} manualy";
   /// "Hello ${name}"
   String greetTo(String name) => "Hello ${name}";
+  /// "Home"
+  String get Home => "Home";
+  /// "Language"
+  String get Language => "Language";
+  /// "Settings"
+  String get Settings => "Settings";
 }
 
 class _I18n_en_US extends I18n {
@@ -59,27 +61,30 @@ class _I18n_en_US extends I18n {
 class _I18n_zh_CN extends I18n {
   const _I18n_zh_CN();
 
-  /// "首页"
+  /// "关于"
   @override
-  String get Home => "首页";
-  /// "设置"
+  String get About => "关于";
+  /// "${action} manualy"
   @override
-  String get Settings => "设置";
-  /// "语言"
-  @override
-  String get Language => "语言";
+  String actManualy(String action) => "${action} manualy";
   /// "添加"
   @override
   String get Add => "添加";
   /// "后退"
   @override
   String get Back => "后退";
-  /// "${action} manualy"
-  @override
-  String actManualy(String action) => "${action} manualy";
   /// "你好, ${name}"
   @override
   String greetTo(String name) => "你好, ${name}";
+  /// "首页"
+  @override
+  String get Home => "首页";
+  /// "语言"
+  @override
+  String get Language => "语言";
+  /// "设置"
+  @override
+  String get Settings => "设置";
 
   @override
   TextDirection get textDirection => TextDirection.ltr;
