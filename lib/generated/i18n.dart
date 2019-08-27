@@ -49,6 +49,8 @@ class I18n implements WidgetsLocalizations {
   String get Language => "Language";
   /// "Settings"
   String get Settings => "Settings";
+  /// "Theme"
+  String get Theme => "Theme";
 }
 
 class _I18n_en_US extends I18n {
@@ -64,9 +66,9 @@ class _I18n_zh_CN extends I18n {
   /// "关于"
   @override
   String get About => "关于";
-  /// "${action} manualy"
+  /// "手动${action}"
   @override
-  String actManualy(String action) => "${action} manualy";
+  String actManualy(String action) => "手动${action}";
   /// "添加"
   @override
   String get Add => "添加";
@@ -85,6 +87,9 @@ class _I18n_zh_CN extends I18n {
   /// "设置"
   @override
   String get Settings => "设置";
+  /// "主题"
+  @override
+  String get Theme => "主题";
 
   @override
   TextDirection get textDirection => TextDirection.ltr;

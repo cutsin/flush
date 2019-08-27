@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import './scanner.dart';
+import 'scanner.dart';
 
 
 class QRCodeScanButton extends StatefulWidget {
@@ -24,7 +24,7 @@ class _QRCodeScanButtonState extends State<QRCodeScanButton> {
       onPressed: () {
         print('dd11');
 
-        
+
         scanQrCode(context)
           .then((res) {
             print('${res}dadsf');

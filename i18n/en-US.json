@@ -6,5 +6,6 @@
   "greetTo": "Hello {name}",
   "Home": "Home",
   "Language": "Language",
-  "Settings": "Settings"
+  "Settings": "Settings",
+  "Theme": "Theme"
 }

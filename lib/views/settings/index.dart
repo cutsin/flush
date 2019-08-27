@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../app.dart';
 import '../../components/nav/bottom.dart';
 import '../../components/nav/top.dart';
+import '../../components/theme-manager.dart';
 
 class SettingsView extends StatefulWidget {
   SettingsView({Key key, this.title}) : super(key: key);
@@ -29,6 +30,14 @@ class _SettingsViewState extends State<SettingsView> {
               trailing: Icon(Icons.keyboard_arrow_right),
               onTap: () {
                 App.router.navigateTo(context, '/settings/language');
+              },
+            ),
+            SwitchListTile(
+              value: themeManager.dark,
+              secondary: Icon(Icons.color_lens),
+              title: Text(I18n.of(context).Theme),
+              onChanged: (v) {
+                themeManager.changeTheme();
               },
             ),
             ListTile(

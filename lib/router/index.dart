@@ -1,7 +1,7 @@
 import 'package:fluro/fluro.dart';
 
 // Route Handlers
-import './routes.dart';
+import 'routes.dart';
 
 Router router;
 

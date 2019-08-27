@@ -7,7 +7,7 @@
 
 * [ ] Cookie
 * [x] Inner widget States
-* [ ] Provider state management
+* [x] Provider state management
 * [ ] EventBus
 * [ ] RX
 
@@ -17,6 +17,7 @@
 * [x] Dialogs
 * [x] Qr code scanner
 * [x] Icons
+* [x] Dark Theme & hot change
 
 * [ ] Unit Tests
 * [ ] Android Release

@@ -1,6 +1,6 @@
 import 'package:fluro/fluro.dart';
-import './generated/i18n.dart';
-export './generated/i18n.dart';
+import 'generated/i18n.dart';
+export 'generated/i18n.dart';
 
 class App {
   static Router router;
