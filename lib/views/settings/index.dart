@@ -33,9 +33,9 @@ class _SettingsViewState extends State<SettingsView> {
               },
             ),
             SwitchListTile(
-              value: themeManager.dark,
+              value: themeManager.darkMode,
               secondary: Icon(Icons.color_lens),
-              title: Text(I18n.of(context).Theme),
+              title: Text(I18n.of(context).DarkMode),
               onChanged: (v) {
                 themeManager.changeTheme();
               },

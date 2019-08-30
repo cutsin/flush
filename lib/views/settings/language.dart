@@ -35,13 +35,18 @@ class _LanguageViewState extends State<LanguageView> {
         title: Text(_locales[_k]),
         trailing: _check,
         enabled: _enabled,
-        onTap: () {
-          print('okhhhh');
-          Localizations.override(
-            context: context,
-            locale: k,
-          );
-          print(Localizations.localeOf(context));
+        onTap: () async {
+          // 1. Update storage
+          // Storage().sharedPreferences().setString('foo', 'bar');
+          // print(preferences.getString('foo'));
+          // print(cj.domains);
+          // print(cj.persistSession);
+          // 2. Update UI
+          // Localizations.override(
+          //   context: context,
+          //   locale: k,
+          // );
+          // print(Localizations.localeOf(context));
         },
       );
     });

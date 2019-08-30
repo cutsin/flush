@@ -7,7 +7,7 @@ import 'components/theme-manager.dart';
 
 import 'package:provider/provider.dart';
 
-void main() {
+void main() async {
   runApp(Main());
 }
 
@@ -25,7 +25,7 @@ class _MainState extends State<Main> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        StreamProvider<ThemeData>(builder: (context) => themeManager.theme),
+        StreamProvider<ThemeData>(builder: (context) => themeManager.stream),
       ],
       child: Consumer<ThemeData>(
         builder: (context, theme, child) => MaterialApp(

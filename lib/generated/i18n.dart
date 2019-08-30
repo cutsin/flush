@@ -41,6 +41,8 @@ class I18n implements WidgetsLocalizations {
   String get Add => "Add";
   /// "Back"
   String get Back => "Back";
+  /// "Dark Mode"
+  String get DarkMode => "Dark Mode";
   /// "Hello ${name}"
   String greetTo(String name) => "Hello ${name}";
   /// "Home"
@@ -75,6 +77,9 @@ class _I18n_zh_CN extends I18n {
   /// "后退"
   @override
   String get Back => "后退";
+  /// "暗黑模式"
+  @override
+  String get DarkMode => "暗黑模式";
   /// "你好, ${name}"
   @override
   String greetTo(String name) => "你好, ${name}";

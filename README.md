@@ -5,7 +5,9 @@
 * [ ] Localizations & hot change
 * [x] Router
 
-* [ ] Cookie
+* [x] Cookie
+* [x] SharedPreferences
+
 * [x] Inner widget States
 * [x] Provider state management
 * [ ] EventBus
@@ -13,6 +15,8 @@
 
 * [x] HTTP Request
 * [ ] Websocket
+* [ ] OAuth
+* [ ] WebView
 
 * [x] Dialogs
 * [x] Qr code scanner

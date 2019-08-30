@@ -1,29 +1,42 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
+import '../utils/preferences.dart';
 
-class ThemeManager {
+class _ThemeManager {
   StreamController<ThemeData> _themeController;
-  Stream<ThemeData> _stream;
   ThemeData _themeData;
+  String theme;
 
-  ThemeManager() {
-    _themeData = ThemeData.light();
+  _themeManagerAsync () async {
     _themeController = StreamController();
-    _stream = _themeController.stream;
+    var pref = await preferences();
+    theme = pref.getString('theme') ?? 'light';
+    _themeData = theme == 'light' ? ThemeData.light() : ThemeData.dark();
+    _save();
   }
 
-  Stream<ThemeData> get stream => _stream;
-  Stream<ThemeData> get theme => _themeController.stream;
+  _ThemeManager() {
+    _themeManagerAsync();
+  }
 
-  bool get dark => _themeData == ThemeData.dark();
+  bool get darkMode => theme == 'dark';
+  Stream<ThemeData> get stream => _themeController.stream;
 
-  changeTheme() {
-    _themeData = !dark ? ThemeData.dark() : ThemeData.light();
+  _save() async {
     _themeController.sink.add(_themeData);
+    var pref = await preferences();
+    pref.setString('theme', theme);
+  }
+
+  changeTheme() async {
+    bool dark = darkMode;
+    theme = dark ? 'light' : 'dark';
+    _themeData = dark ? ThemeData.light() : ThemeData.dark();
+    _save();
   }
   dispose() {
     _themeController.close();
   }
 }
 
-final themeManager = ThemeManager();
+final themeManager = _ThemeManager();
