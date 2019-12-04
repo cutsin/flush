@@ -2,16 +2,24 @@
 
 ## Check Points
 
+### Common
+
 * [ ] Localizations & hot change
 * [x] Router
 
+### Storage
+
 * [x] Cookie
 * [x] SharedPreferences
+
+### State Management
 
 * [x] Inner widget States
 * [x] Provider state management
 * [ ] EventBus
 * [ ] RX
+
+### Network
 
 * [x] HTTP Request
 * [ ] Websocket
